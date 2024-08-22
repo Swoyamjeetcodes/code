@@ -1,0 +1,5 @@
+1 in binary: 1
+2 in binary: 10
+3 in binary: 11
+10 in binary: 1010
+5 in binary: 101
