@@ -1,3 +1,6 @@
 [submodule "cn_l"]
 	path = cn_l
 	url = https://github.com/priyansu1001/cn_l
+[submodule "WebDev/odin-recipes"]
+	path = WebDev/odin-recipes
+	url = git@github.com:Swoyamjeetcodes/odin-recipes.git
