@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+}
+/* types of colors */
+h1{
+    color: wheat;
+}
+#p1{
+    color: tomato;
+}
+#p2{
+    color: rgb(241, 13, 203);
+}
+#p3{
+    color: #16f102;
+}
+.x{
+    color: hsl(212, 82%, 48%);
+}

@@ -1,0 +1,29 @@
+body{
+    margin: 0px;
+}
+.box{
+    border: 5px solid;
+    font-size: 5em;
+    width: 200px;
+    height: 200px;
+}
+
+#box1{
+    background-color: aqua;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    /* or just margin:50px */
+}
+#box2{
+    background-color: brown;
+    margin-left: auto;
+    /* sticks to right of webpage */
+
+}
+#box3{
+    background-color: burlywood;
+    margin: auto;
+    /* stays in middle */
+}

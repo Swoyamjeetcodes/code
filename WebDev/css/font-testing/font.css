@@ -1,0 +1,27 @@
+@font-face {
+    font-family: xyz;
+    src: url(../fonts/Poppins-Light.ttf);
+}
+
+/* fonts */
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#p1{
+    color: red;
+    font-family:xyz;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+.x{
+    color: black;
+    font-weight: bold;
+    font-family:Quicksand;
+}
+.y{
+    color: violet;
+    font-style: normal;
+    font-weight: bold;
+    font-family: Ubuntu;
+}

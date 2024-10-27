@@ -1,0 +1,19 @@
+h2{
+    color: red;
+}
+
+/* # for ids */
+#p2{
+    color: blue;
+}
+#p3{
+    color: darkgreen;
+}
+
+/* .dot for classes */
+.x{
+    color: blueviolet;
+}
+.y{
+    color: coral;
+}
