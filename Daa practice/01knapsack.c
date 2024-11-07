@@ -49,7 +49,7 @@ int knapsack(int m,int wt[], int p[],int n)
     return 0;
 }
 
-
+printf()
 
 
 

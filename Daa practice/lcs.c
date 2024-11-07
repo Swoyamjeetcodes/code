@@ -13,6 +13,7 @@ int LCS(int n,int m,char x[], char y[])
             for(j=0;j<=m;j++)
             {
                 if(i==0||j==0)
+                
                     lcs[i][j]=0;
                 else if(x[i-1]==y[j-1])
                     lcs[i][j]=1+lcs[i-1][j-1];
