@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIIT Central Library</title>
+    <link rel="stylesheet" type="png" href="KIIT-logo-HD.png">
+</head>
+<style>
+    h1
+    {
+        text-align: center;
+    }
+    #p1
+    {
+        background-color: green;
+    }
+    #img1
+    {
+        float:right;
+        margin-right: 10px;
+        
+    }
+    .me
+    {
+        position: absolute;
+        
+    }
+</style>
+<body>
+        <div class="me">
+            <img src="KIIT-logo-HD.png" height="50" width="50" alt="" id="img1">        
+        <h1><u>KIIT Central Library</u></h1>
+        </div>
+         
+        
+        <p id="p1"><marquee direction="left"><div>Student Registration Form</div></marquee></p>
+        <fieldset>
+            <legend><b>Student Details</b></legend>
+            <form action="index.php" method="get" enctype="multipart/form-data">
+
+                <label for="Username">Username:</label><br>
+                <input type="text" id="Username" placeholder="First Name">
+                <input type="text" id="Username" placeholder="Middle Name">
+                <input type="text" id="Username" placeholder="Last Name">
+                <br>
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" placeholder="xyz@kiit.ac.in">
+                <br>
+                <label for="password">Password:</label>
+                <input type="password"id="password" placeholder="password">
+                <br>
+                <label for="gender">Gender:</label>
+                <label for="Male">Male</label>
+                <input type="radio" name="gender" id="Male" >
+                <label for="Mrs.">Female</label>
+                <input type="radio" name="gender" id="Female">
+                <label for="Others">Others</label>
+                <input type="radio" name="gender" id="Others">
+                <br>
+                <label for="address">Address:</label><br>
+                <label for="Correspondence">Enter your Correspondence Address:</label><br>
+                <textarea name="address" id="Correspondence">Correspondence Address</textarea><br>
+                <label for="permanent">Enter your Permanent Address:</label><br>
+                <textarea name="address" id="permanent">Permanent Address:</textarea>
+                <br>
+                <label for="domicile">Select your domicile:</label>
+                <select id="domicile" name="domicile">
+                <optgroup label="East India">
+                <option value="bihar">Bihar</option>
+                <option value="jharkhand">Jharkhand</option>
+                <option value="odisha">Odisha</option>
+                <option value="west-bengal">West Bengal</option>
+                </optgroup>
+                <optgroup label="West India">
+                <option value="gujarat">Gujarat</option>
+                <option value="maharashtra">Maharashtra</option>
+                </optgroup>
+                <optgroup label="North India">
+                <option value="punjab">Punjab</option>
+                <option value="haryana">Haryana</option>
+                <option value="uttar-pradesh">Uttar Pradesh</option>
+                </optgroup>
+                <optgroup label="South India">
+                <option value="andhra-pradesh">Andhra Pradesh</option>
+                <option value="telangana">Telangana</option>
+                </optgroup>
+                </select>
+                <br>
+                <input type="submit" value="Sign Up">
+            </form>
+        </fieldset>
+        
+</body>
+</html>

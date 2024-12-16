@@ -1,0 +1,161 @@
+SQL> CREATE TABLE DEPARTMENT (Dept_id NUMBER PRIMARY KEY, Dept_name VARCHAR2(20) NOT NULL, Dept_address VARCHAR2(20), Dept_ph_no VARCHAR2(10), Dept_hod VARCHAR2(20));
+
+Table created.
+
+SQL> CREATE TABLE EMPLOYEE(Emp_no NUMBER(10) PRIMARY KEY, E_name VARCHAR(20), E_address VARCHAR(20), E_ph_no VARCHAR(10), Dept_no NUMBER CONSTRAINT dept_id_fk REFERENCES DEPARTMENT(Dept_id), Dept_name VARCHAR(20), Job_id CHAR(10), salary NUMBER CHECK(salary > 10000));
+
+Table created.
+
+SQL> ALTER TABLE EMPLOYEE ADD hiredate DATE;
+
+Table altered.
+
+SQL> ALTER TABLE EMPLOYEE MODIFY Job_id VARCHAR2(10);
+
+Table altered.
+
+SQL> ALTER TABLE EMPLOYEE RENAME Emp_no TO E_no;
+ALTER TABLE EMPLOYEE RENAME Emp_no TO E_no
+                            *
+ERROR at line 1:
+ORA-14155: missing PARTITION or SUBPARTITION keyword 
+
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NO                                    NOT NULL NUMBER(10)
+ E_NAME                                             VARCHAR2(20)
+ E_ADDRESS                                          VARCHAR2(20)
+ E_PH_NO                                            VARCHAR2(10)
+ DEPT_NO                                            NUMBER
+ DEPT_NAME                                          VARCHAR2(20)
+ JOB_ID                                             VARCHAR2(10)
+ SALARY                                             NUMBER
+ HIREDATE                                           DATE
+
+SQL> ALTER TABLE EMPLOYEE MODIFY Job_id VARCHAR2(20);
+
+Table altered.
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NO                                    NOT NULL NUMBER(10)
+ E_NAME                                             VARCHAR2(20)
+ E_ADDRESS                                          VARCHAR2(20)
+ E_PH_NO                                            VARCHAR2(10)
+ DEPT_NO                                            NUMBER
+ DEPT_NAME                                          VARCHAR2(20)
+ JOB_ID                                             VARCHAR2(20)
+ SALARY                                             NUMBER
+ HIREDATE                                           DATE
+
+SQL> desc department;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPT_ID                                   NOT NULL NUMBER
+ DEPT_NAME                                 NOT NULL VARCHAR2(20)
+ DEPT_ADDRESS                                       VARCHAR2(20)
+ DEPT_PH_NO                                         VARCHAR2(10)
+ DEPT_HOD                                           VARCHAR2(20)
+
+SQL> INSERT INTO DEPARTMENT VALUES (101, 'HR', 'Bhubaneswar', '9876543210', 'Brajesh');
+
+1 row created.
+
+SQL> INSERT INTO DEPARTMENT VALUES (102, 'HR', 'Bhubaneswar', '7876643210', 'PKP');
+
+1 row created.
+
+SQL> INSERT INTO DEPARTMENT VALUES (103, 'HR', 'Bhubaneswar', '8876487210', 'Jeet');
+
+1 row created.
+
+SQL> INSERT INTO DEPARTMENT VALUES (104, 'HR', 'Bhubaneswar', '9087647210', 'Yash');
+
+1 row created.
+
+SQL> INSERT INTO DEPARTMENT VALUES (105, 'HR', 'Bhubaneswar', '9078647270', 'Kushadayo');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (1, 'Brajesh', 'Bhubaneswar', '1234567890', 101, 'HR', 'Manager', 120000, TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (2, 'PKP', 'Bhubaneswar', '1234567890', 102, 'HR', 'Manager', 120000, TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (3, 'Jeet', 'Bhubaneswar', '1234567890', 103, 'HR', 'Manager', 120000, TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (4, 'Jeet', 'Bhubaneswar', '1234567890', 104, 'HR', 'Manager', 120000, TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (5, 'Kushadayo', 'Bhubaneswar', '1234567890', 105, 'HR', 'Manager', 120000, TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+
+1 row created.
+
+SQL> select * from employee;
+
+    EMP_NO E_NAME               E_ADDRESS            E_PH_NO       DEPT_NO      
+---------- -------------------- -------------------- ---------- ----------      
+DEPT_NAME            JOB_ID                   SALARY HIREDATE                   
+-------------------- -------------------- ---------- ---------                  
+         1 Brajesh              Bhubaneswar          1234567890        101      
+HR                   Manager                  120000 01-JAN-22                  
+                                                                                
+         2 PKP                  Bhubaneswar          1234567890        102      
+HR                   Manager                  120000 01-JAN-22                  
+                                                                                
+         3 Jeet                 Bhubaneswar          1234567890        103      
+HR                   Manager                  120000 01-JAN-22                  
+                                                                                
+
+    EMP_NO E_NAME               E_ADDRESS            E_PH_NO       DEPT_NO      
+---------- -------------------- -------------------- ---------- ----------      
+DEPT_NAME            JOB_ID                   SALARY HIREDATE                   
+-------------------- -------------------- ---------- ---------                  
+         4 Jeet                 Bhubaneswar          1234567890        104      
+HR                   Manager                  120000 01-JAN-22                  
+                                                                                
+         5 Kushadayo            Bhubaneswar          1234567890        105      
+HR                   Manager                  120000 01-JAN-22                  
+                                                                                
+
+SQL> select * from department;
+
+   DEPT_ID DEPT_NAME            DEPT_ADDRESS         DEPT_PH_NO                 
+---------- -------------------- -------------------- ----------                 
+DEPT_HOD                                                                        
+--------------------                                                            
+       101 HR                   Bhubaneswar          9876543210                 
+Brajesh                                                                         
+                                                                                
+       102 HR                   Bhubaneswar          7876643210                 
+PKP                                                                             
+                                                                                
+       103 HR                   Bhubaneswar          8876487210                 
+Jeet                                                                            
+                                                                                
+
+   DEPT_ID DEPT_NAME            DEPT_ADDRESS         DEPT_PH_NO                 
+---------- -------------------- -------------------- ----------                 
+DEPT_HOD                                                                        
+--------------------                                                            
+       104 HR                   Bhubaneswar          9087647210                 
+Yash                                                                            
+                                                                                
+       105 HR                   Bhubaneswar          9078647270                 
+Kushadayo                                                                       
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;

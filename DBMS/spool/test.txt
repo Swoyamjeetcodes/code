@@ -1,0 +1,201 @@
+SQL> CREATE TABLE ITEM (ItemNo INT PRIMARY KEY,ItemName VARCHAR(100) NOT NULL,ItemPrice DECIMAL(10,2) DEFAULT 100,QtyOnHand INT);
+
+Table created.
+
+SQL> CREATE TABLE BUYER (buyer_id INT NOT NULL,name VARCHAR(255) NOT NULL,itemNo INT,date_of_purchase DATE,PRIMARY KEY (buyer_id),FOREIGN KEY (itemNo) REFERENCES ITEM(ItemNo));
+
+Table created.
+
+SQL> INSERT INTO ITEM (ItemNo, ItemName,ItemPrice, QtyOnHand) VALUES (1, 'Hammer', 9.99,125);
+
+1 row created.
+
+SQL> INSERT INTO ITEM (ItemNo, ItemName,ItemPrice, QtyOnHand) VALUES (2, 'Bolt', 3.99,75);
+
+1 row created.
+
+SQL> INSERT INTO ITEM (ItemNo, ItemName,ItemPrice, QtyOnHand) VALUES (3, 'washer', 1.99,100);
+
+1 row created.
+
+SQL> INSERT INTO ITEM (ItemNo, ItemName,ItemPrice, QtyOnHand) VALUES (4, 'Screw', 2.25,50);
+
+1 row created.
+
+SQL> Select * from ITEM;
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+         1                                                                      
+Hammer                                                                          
+      9.99        125                                                           
+                                                                                
+         2                                                                      
+Bolt                                                                            
+      3.99         75                                                           
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+                                                                                
+         3                                                                      
+washer                                                                          
+      1.99        100                                                           
+                                                                                
+         4                                                                      
+Screw                                                                           
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+      2.25         50                                                           
+                                                                                
+
+SQL> INSERT INTO BUYER (buyer_id, itemNo,name, date_of_purchase) VALUES (101, 1, 'ram', '12 March 2018');
+
+1 row created.
+
+SQL> INSERT INTO BUYER (buyer_id, itemNo,name, date_of_purchase) VALUES (201, 2, 'sam', '7 Feb 2018');
+
+1 row created.
+
+SQL> INSERT INTO BUYER (buyer_id, itemNo,name, date_of_purchase) VALUES (301, 3, 'hari', '1 March 2018');
+
+1 row created.
+
+SQL> INSERT INTO BUYER (buyer_id, itemNo,name, date_of_purchase) VALUES (401, 2, 'dham', '5 March 2019');
+
+1 row created.
+
+SQL> SELECT * FROM ITEM WHERE ItemPrice >= 5;
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+         1                                                                      
+Hammer                                                                          
+      9.99        125                                                           
+                                                                                
+
+SQL> SELECT * FROM ITEM WHERE ItemName LIKE '%W%';
+
+no rows selected
+
+SQL> SELECT * FROM ITEM WHERE ItemName LIKE '%w%';
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+         3                                                                      
+washer                                                                          
+      1.99        100                                                           
+                                                                                
+         4                                                                      
+Screw                                                                           
+      2.25         50                                                           
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+                                                                                
+
+SQL> SELECT * FROM ITEM ORDER BY ItemPrice DESC;
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+         1                                                                      
+Hammer                                                                          
+      9.99        125                                                           
+                                                                                
+         2                                                                      
+Bolt                                                                            
+      3.99         75                                                           
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+                                                                                
+         4                                                                      
+Screw                                                                           
+      2.25         50                                                           
+                                                                                
+         3                                                                      
+washer                                                                          
+
+    ITEMNO                                                                      
+----------                                                                      
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+ ITEMPRICE  QTYONHAND                                                           
+---------- ----------                                                           
+      1.99        100                                                           
+                                                                                
+
+SQL> SELECT SUM(ItemPrice) AS TotalPrice,AVG(ItemPrice) AS AveragePrice,MAX(ItemPrice) AS HighestPrice,MIN(ItemPrice) AS LowestPrice FROM ITEM;
+
+TOTALPRICE AVERAGEPRICE HIGHESTPRICE LOWESTPRICE                                
+---------- ------------ ------------ -----------                                
+     18.22        4.555         9.99        1.99                                
+
+SQL> SELECT DISTINCT ITEM.ItemName FROM ITEM JOIN BUYER ON ITEM.ItemNo = BUYER.itemNo WHERE BUYER.date_of_purchase > '12 June 2018';
+
+ITEMNAME                                                                        
+--------------------------------------------------------------------------------
+Bolt                                                                            
+
+SQL> ED TEST
+
+SQL> @TEST
+ 14  /
+Enter value for year_input: 2000
+old   5:     year_number := &year_input;
+new   5:     year_number := 2000;
+
+PL/SQL procedure successfully completed.
+
+SQL> @TEST1
+SP2-0310: unable to open file "TEST1.sql"
+SQL> ED TEST2
+
+SQL> @TEST2
+ 19  /
+Enter value for num1_input: 1
+old   3:     num1 NUMBER := &num1_input;
+new   3:     num1 NUMBER := 1;
+Enter value for num2_input: 2
+old   4:     num2 NUMBER := &num2_input;
+new   4:     num2 NUMBER := 2;
+
+PL/SQL procedure successfully completed.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF;

@@ -1,0 +1,87 @@
+SQL> create table emp(emp_id number(6),name varchar(10),dep_np number(3));
+
+Table created.
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                             NUMBER(6)
+ NAME                                               VARCHAR2(10)
+ DEP_NP                                             NUMBER(3)
+
+SQL> drop table emp;
+
+Table dropped.
+
+SQL> create table emp(emp_id number(6) NOT NULL,name varchar(10) NOT NULL,dep_np number(3) NOT NULL);
+
+Table created.
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL NUMBER(6)
+ NAME                                      NOT NULL VARCHAR2(10)
+ DEP_NP                                    NOT NULL NUMBER(3)
+
+
+SQL> drop table emp;
+
+Table dropped.
+
+SQL> create table emp(emp_id number(6) CONSTRAINT c1 NOT NULL,name varchar(10) CONSTRAINT c2 NOT NULL,dep_np number(3) CONSTRAINT c3
+NOT NULL);
+
+Table created.
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL NUMBER(6)
+ NAME                                      NOT NULL VARCHAR2(10)
+ DEP_NP                                    NOT NULL NUMBER(3)
+
+SQL> alter table emp drop CONSTRAINT c1;
+
+Table altered.
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                             NUMBER(6)
+ NAME                                      NOT NULL VARCHAR2(10)
+ DEP_NP                                    NOT NULL NUMBER(3)
+
+                                   NOT NULL NUMBER(3)
+SQL> drop table emp;
+
+Table dropped.
+
+SQL> create table emp(emp_id number(6) unique,name varchar(10) unique,dep_id number(3) unique);
+
+Table created.
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                             NUMBER(6)
+ NAME                                               VARCHAR2(10)
+ DEP_ID                                             NUMBER(3)
+
+SQL> drop table emp;                                            
+Table dropped.
+
+SQL> create table emp(emp_id number(6) primary key,name varchar(10) unique,dep_id number(3) unique);
+
+Table created.
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_ID                                    NOT NULL NUMBER(6)
+ NAME                                               VARCHAR2(10)
+ DEP_ID                                             NUMBER(3)
+
+SQL> drop table emp;
+
+Table dropped.

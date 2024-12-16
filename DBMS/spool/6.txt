@@ -1,0 +1,261 @@
+SQL> create table std(roll varchar(10) PRIMARY KEY,name char(20),age number(3),dept_no number(2));
+
+Table created.
+
+SQL> create table dept(dept_no number(2) primary key, dname char(5), location number(3));
+
+Table created.
+
+SQL> create table customer(cus_no number(2),C_name char(20),age number(3));
+
+Table created.
+
+SQL> insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no);
+Enter value for roll: 677
+Enter value for name: brajesh
+Enter value for age: 20
+Enter value for dept_no: 1
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(677,'brajesh',20,1)
+
+1 row created.
+
+SQL> /
+Enter value for roll: 703
+Enter value for name: pkp
+Enter value for age: 19
+Enter value for dept_no: 1
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(703,'pkp',19,1)
+
+1 row created.
+
+SQL> /
+Enter value for roll: 733
+Enter value for name: jeet
+Enter value for age: 19
+Enter value for dept_no: 1
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(733,'jeet',19,1)
+
+1 row created.
+
+SQL> /
+Enter value for roll: 737
+Enter value for name: yida
+Enter value for age: 20
+Enter value for dept_no: 1
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(737,'yida',20,1)
+
+1 row created.
+
+SQL> select * from std;
+
+ROLL       NAME                        AGE    DEPT_NO                           
+---------- -------------------- ---------- ----------                           
+677        brajesh                      20          1                           
+703        pkp                          19          1                           
+733        jeet                         19          1                           
+737        yida                         20          1                           
+
+SQL> insert into dept(dept_no,name,location)values(&dept_no,'&name',&location);
+Enter value for dept_no: 1
+Enter value for name: brajesh
+Enter value for location: 40
+old   1: insert into dept(dept_no,name,location)values(&dept_no,'&name',&location)
+new   1: insert into dept(dept_no,name,location)values(1,'brajesh',40)
+insert into dept(dept_no,name,location)values(1,'brajesh',40)
+                         *
+ERROR at line 1:
+ORA-00904: "NAME": invalid identifier 
+
+
+SQL> insert into dept(dept_no,dname,location)values(&dept_no,'&dname',&location);
+Enter value for dept_no: 1
+Enter value for dname: brajesh
+Enter value for location: 40
+old   1: insert into dept(dept_no,dname,location)values(&dept_no,'&dname',&location)
+new   1: insert into dept(dept_no,dname,location)values(1,'brajesh',40)
+insert into dept(dept_no,dname,location)values(1,'brajesh',40)
+                                                 *
+ERROR at line 1:
+ORA-12899: value too large for column "JEET"."DEPT"."DNAME" (actual: 7, 
+maximum: 5) 
+
+
+SQL> /
+Enter value for dept_no: 1
+Enter value for dname: braju
+Enter value for location: 40
+old   1: insert into dept(dept_no,dname,location)values(&dept_no,'&dname',&location)
+new   1: insert into dept(dept_no,dname,location)values(1,'braju',40)
+
+1 row created.
+
+SQL> /
+Enter value for dept_no: 1
+Enter value for dname: pkp
+Enter value for location: 30
+old   1: insert into dept(dept_no,dname,location)values(&dept_no,'&dname',&location)
+new   1: insert into dept(dept_no,dname,location)values(1,'pkp',30)
+insert into dept(dept_no,dname,location)values(1,'pkp',30)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (JEET.SYS_C007014) violated 
+
+
+SQL> /
+Enter value for dept_no: 2
+Enter value for dname: pkp
+Enter value for location: 39
+old   1: insert into dept(dept_no,dname,location)values(&dept_no,'&dname',&location)
+new   1: insert into dept(dept_no,dname,location)values(2,'pkp',39)
+
+1 row created.
+
+SQL> /
+Enter value for dept_no: 3
+Enter value for dname: jeet
+Enter value for location: 89
+old   1: insert into dept(dept_no,dname,location)values(&dept_no,'&dname',&location)
+new   1: insert into dept(dept_no,dname,location)values(3,'jeet',89)
+
+1 row created.
+
+SQL> /
+Enter value for dept_no: 4
+Enter value for dname: yida
+Enter value for location: 99
+old   1: insert into dept(dept_no,dname,location)values(&dept_no,'&dname',&location)
+new   1: insert into dept(dept_no,dname,location)values(4,'yida',99)
+
+1 row created.
+
+SQL> insert into customer(cus_no,C_name,age)values(&cus_no,'&C_name',&age);
+Enter value for cus_no: 1
+Enter value for c_name: braju
+Enter value for age: 19
+old   1: insert into customer(cus_no,C_name,age)values(&cus_no,'&C_name',&age)
+new   1: insert into customer(cus_no,C_name,age)values(1,'braju',19)
+
+1 row created.
+
+SQL> /
+Enter value for cus_no: 2
+Enter value for c_name: pkp
+Enter value for age: 19
+old   1: insert into customer(cus_no,C_name,age)values(&cus_no,'&C_name',&age)
+new   1: insert into customer(cus_no,C_name,age)values(2,'pkp',19)
+
+1 row created.
+
+SQL> /
+Enter value for cus_no: 3
+Enter value for c_name: jeet
+Enter value for age: 19
+old   1: insert into customer(cus_no,C_name,age)values(&cus_no,'&C_name',&age)
+new   1: insert into customer(cus_no,C_name,age)values(3,'jeet',19)
+
+1 row created.
+
+SQL> /
+Enter value for cus_no: 4
+Enter value for c_name: yida
+Enter value for age: 20
+old   1: insert into customer(cus_no,C_name,age)values(&cus_no,'&C_name',&age)
+new   1: insert into customer(cus_no,C_name,age)values(4,'yida',20)
+
+1 row created.
+
+SQL> truncate table std;
+
+Table truncated.
+
+SQL> insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no);
+Enter value for roll: 677
+Enter value for name: braju
+Enter value for age: 19
+Enter value for dept_no: 1
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(677,'braju',19,1)
+
+1 row created.
+
+SQL> /
+Enter value for roll: 703
+Enter value for name: pkp
+Enter value for age: 19
+Enter value for dept_no: 2
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(703,'pkp',19,2)
+
+1 row created.
+
+SQL> /
+Enter value for roll: 733
+Enter value for name: jeet
+Enter value for age: 19
+Enter value for dept_no: 1
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(733,'jeet',19,1)
+
+1 row created.
+
+SQL> /
+Enter value for roll: 737
+Enter value for name: yida
+Enter value for age: 20
+Enter value for dept_no: 4
+old   1: insert into std(roll,name,age,dept_no)values(&roll,'&name',&age,&dept_no)
+new   1: insert into std(roll,name,age,dept_no)values(737,'yida',20,4)
+
+1 row created.
+
+SQL> SELECT roll FROM std WHERE dept_no=(SELECT dept_no FROM dept WHERE dname='jeet');
+
+no rows selected
+
+SQL> alter table std add constraint g1 foreign key(dept_no) references dept(dept_no);
+
+Table altered.
+
+SQL> SELECT roll FROM std WHERE dept_no=(SELECT dept_no FROM dept WHERE dname='jeet');
+
+no rows selected
+
+SQL> select  * from std;
+
+ROLL       NAME                        AGE    DEPT_NO                           
+---------- -------------------- ---------- ----------                           
+677        braju                        19          1                           
+703        pkp                          19          2                           
+733        jeet                         19          1                           
+737        yida                         20          4                           
+
+SQL> select  * from dept;
+
+   DEPT_NO DNAME   LOCATION                                                     
+---------- ----- ----------                                                     
+         1 braju         40                                                     
+         2 pkp           39                                                     
+         3 jeet          89                                                     
+         4 yida          99                                                     
+
+SQL> SELECT roll FROM std WHERE dept_no=(SELECT dept_no FROM dept WHERE dname='pkp');
+
+ROLL                                                                            
+----------                                                                      
+703                                                                             
+
+SQL> SELECT roll,name FROM std WHERE dept_no=(SELECT dept_no FROM dept WHERE dname='pkp');
+
+ROLL       NAME                                                                 
+---------- --------------------                                                 
+703        pkp                                                                  
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;

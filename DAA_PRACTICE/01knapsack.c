@@ -49,29 +49,3 @@ int knapsack(int m,int wt[], int p[],int n)
     return 0;
 }
 
-printf()
-
-
-
-
-
-
-
-// int knapsack(int n , int capacity,int weights[],int profits[])
-// {
-//     int i,w;
-//     int ks[n+1][capacity+1]
-
-//     for(i=0;i<=n;i++)
-//     {
-//         for(w=0;w<=capacity;w++)
-//         {
-//             if(i==0||w==0)
-//                 ks[i][w]=0;
-//             else if(wt[i]<=w)
-//                 max(ks[i-1][w],ks[i-1][wt[i]]+p[i])
-//             else
-//                 ks[i][w]=ks[i-1][w];
-//         }
-//     }
-// }
