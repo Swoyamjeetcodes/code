@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>User Information Form</h1>
+    <form>
+        <table>
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td>
+                    <input type="text" id="name" placeholder="First and Last Name">
+                    <span class="error" id="nameError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address">Address</label></td>
+                <td>
+                    <input type="text" id="address" placeholder="Street, City, State, Zip Code">
+                    <span class="error" id="addressError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone Number</label></td>
+                <td>
+                    <input type="text" id="phone" placeholder="123-456-7890">
+                    <span class="error" id="phoneError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email Address</label></td>
+                <td>
+                    <input type="email" id="email" placeholder="name@example.com">
+                    <span class="error" id="emailError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="birthDate">Birth Date</label></td>
+                <td>
+                    <input type="date" id="birthDate">
+                    <span class="error" id="birthDateError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="message">Message</label></td>
+                <td>
+                    <textarea id="message" rows="4" placeholder="Your message"></textarea>
+                    <span class="error" id="messageError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="captcha">Security Question: What is 5 + 3?</label></td>
+                <td>
+                    <input type="text" id="captcha" placeholder="Your Answer">
+                    <span class="error" id="captchaError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" id="submitForm">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="confirm-section" id="confirmSection">
+        <h2>Confirm Your Information</h2>
+        <p id="confirmDetails"></p>
+        <button type="button" id="editForm">Edit</button>
+        <button type="button" id="finalSubmit">Confirm</button>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
