@@ -1,5 +1,11 @@
-h2{
-    color: red;
+/*  universal selector
+    * {
+        color: purple; 
+    }
+*/
+h2.k{
+    background-color: beige;
+    text-align:center;
 }
 
 /* # for ids */
@@ -14,6 +20,18 @@ h2{
 .x{
     color: blueviolet;
 }
-.y{
+p.y{
     color: coral;
 }
+
+h2 #u{
+    color: aqua;
+}
+
+div h2{
+    color: aqua;
+}
+/* 
+A B → Select B that is inside A , has space 
+A#id → Select element A that has ID id, dont have space 
+*/
